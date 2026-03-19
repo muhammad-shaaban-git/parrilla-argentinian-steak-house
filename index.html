@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parrilla Argentinian Steak House | Milton Keynes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B0000; /* Deep Red */
+            --secondary: #D4AF37; /* Gold */
+            --dark: #121212;
+            --light: #f4f4f4;
+            --text-muted: #888;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--white);
+            background-color: var(--dark);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--primary);
+        }
+
+        .btn:hover {
+            background: transparent;
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        /* Sections General */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: var(--secondary);
+        }
+
+        /* About Section */
+        .about {
+            background: #1a1a1a;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .rating-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 5px 15px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #222;
+            padding: 40px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        /* Reviews */
+        .reviews {
+            background: #1a1a1a;
+        }
+
+        .review-card {
+            background: var(--dark);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .review-text {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            margin-top: 15px;
+            display: block;
+        }
+
+        /* Contact & Hours */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            background: #333;
+            margin-top: 30px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .about-grid, .contact-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 2.2rem; }
+            .nav-content { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">Parrilla</div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content container">
+            <h1>Parrilla Argentinian Steak House</h1>
+            <p>The Ultimate Destination for Authentic Argentinian Grill</p>
+            <a href="tel:01908870007" class="btn">Book a Table</a>
+        </div>
+    </header>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Argentinian Grill" style="width: 100%; border-radius: 5px;">
+                </div>
+                <div class="about-text">
+                    <div class="rating-badge">★ 4.8 Rating (1277 Reviews)</div>
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Experience the Passion</h2>
+                    <p>Located in the heart of Milton Keynes, Parrilla brings the vibrant flavors of the Argentine pampas to your plate. Specializing in high-quality cuts and traditional "asado" techniques, we pride ourselves on offering a dining experience that is both elegant and authentic.</p>
+                    <p>Whether you're looking for our succulent Wagyu steaks, famous beef short ribs, or our Halal-friendly options, every dish is prepared with the utmost care to ensure a "special occasion" vibe every time you visit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Our Offerings</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Argentinian Grill</h3>
+                    <p>Premium Ribeye, Sirloin, and Filet steaks cooked to your preference on our traditional grill.</p>
+                </div>
+                <div class="service-card">
+                    <h3>The Bar</h3>
+                    <p>Signature cocktails including our famous Watermelon Cucumber Mojito and a curated wine list.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Bottomless Brunch</h3>
+                    <p>Indulge in high-quality food and cocktails with our popular weekend brunch service.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Family Dining</h3>
+                    <p>We welcome all ages with special kid-friendly menus and activity packs to keep the little ones entertained.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <h2 class="section-title">Customer Stories</h2>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <span>★★★★★</span>
+                    <span>Rating: 5/5</span>
+                </div>
+                <p class="review-text">"The service and food is great, it was also bustling with people. The drink service is not as fast as some bottomless brunches but the quality of the cocktails and food makes up for it. Thank you to Hiwi for the fantastic service and making sure we were looked after."</p>
+                <span class="reviewer-name">- Ashleigh</span>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span>★★★★★</span>
+                    <span>Rating: 5/5</span>
+                </div>
+                <p class="review-text">"We went for the first time for a late lunch at 16:00. We had no reservations, but Blazer was great enough to find us a table straight away!!! Then he accommodated our little one by explaining the menu and gave her a play-menu to draw and pass her time with some activities. Then Prina took over and served us... everything we ordered was delicious. In the end we got a wagyu burger for home, and despite tasting it about a couple of hours later, still it tasted much better than other more famous burger places."</p>
+                <span class="reviewer-name">- Christina Armyra</span>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span>★★★★☆</span>
+                    <span>Rating: 4/5</span>
+                </div>
+                <p class="review-text">"As one of the few Halal steak houses in Milton Keynes, Parilla has been my 'special occasion' spot. The atmosphere in the restaurant is truly excellent. On my first visit, the Beef Short Ribs were delicious and the medium Ribeyes were cooked to perfection. Paired with a fantastic Watermelon Cucumber Mojito, it felt like a winner. The service and setting are top-tier."</p>
+                <span class="reviewer-name">- Salik Sarwar</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div>
+                    <h2 class="section-title" style="text-align: left;">Find Us</h2>
+                    <div class="contact-info">
+                        <p><strong>Address:</strong><br>309 Avebury Blvd, Milton Keynes MK9 2GA, UK</p>
+                        <p><strong>Phone:</strong><br>01908 870007</p>
+                        <a href="tel:01908870007" class="btn" style="margin-top: 20px;">Call Us Now</a>
+                    </div>
+                    <div class="map-container">
+                        <!-- Placeholder for Google Maps Embed -->
+                        <iframe 
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0" 
+                            style="border:0" 
+                            src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=309+Avebury+Blvd,Milton+Keynes+MK9+2GA,UK" 
+                            allowfullscreen>
+                            <div style="padding: 100px; text-align: center;">Google Maps View: 309 Avebury Blvd</div>
+                        </iframe>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="section-title" style="text-align: left;">Opening Hours</h2>
+                    <ul class="hours-list">
+                        <li><span>Monday</span> <span>12:00 PM – 11:00 PM</span></li>
+                        <li><span>Tuesday</span> <span>12:00 PM – 11:00 PM</span></li>
+                        <li><span>Wednesday</span> <span>12:00 PM – 11:00 PM</span></li>
+                        <li><span>Thursday</span> <span>12:00 PM – 11:00 PM</span></li>
+                        <li><span>Friday</span> <span>12:00 PM – 11:00 PM</span></li>
+                        <li><span>Saturday</span> <span>12:00 PM – 11:00 PM</span></li>
+                        <li><span>Sunday</span> <span>12:00 PM – 11:00 PM</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 40px 0; text-align: center; border-top: 1px solid #333;">
+        <p>&copy; 2023 Parrilla Argentinian Steak House. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
